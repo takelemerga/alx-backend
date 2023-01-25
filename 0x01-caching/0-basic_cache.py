@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""basic cache odule"""
 from base import BaseCaching
 
 
