@@ -17,7 +17,7 @@ class LIFOCache(BaseCaching):
                 self.cache_data[key] = item
             else:
                 self.cache_data.pop(keylist[len(keylist) - 1])
-                print("{}:{}".format("DISCARD", keylist[len(keylist) - 1]))
+                print("DISCARD", keylist[len(keylist) - 1])
                 self.cache_data[key] = item
 
     def get(self, key):
