@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """child module"""
-from base import BaseCaching
+from base_caching import BaseCaching
 
 
 class FIFOCache(BaseCaching):

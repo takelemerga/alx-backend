@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """child class module"""
-from base import BaseCaching
+from base_caching import BaseCaching
 from collections import OrderedDict
 
 
