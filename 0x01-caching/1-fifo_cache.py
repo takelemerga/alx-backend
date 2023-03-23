@@ -11,8 +11,9 @@ class FIFOCache(BaseCaching):
 
     def put(self, key, item):
         """assign value to key"""
-        if (key or item is not None):
-            self.cache_data[key] = item
+        if key is None or item is None:
+            return
+        self.cache_data[key] = item
         if (len(self.cache_data) > BaseCaching.MAX_ITEMS):
             keylist = list(self.cache_data.keys())
             self.cache_data.pop(keylist[0])
