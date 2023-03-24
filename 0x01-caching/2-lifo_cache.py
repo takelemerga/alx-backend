@@ -13,7 +13,6 @@ class LIFOCache(BaseCaching):
 
     def put(self, key, item):
         """assign value to key"""
-        keylist = list(self.cache_data.keys())
         if key is None or item is None:
             return
         if key not in self.cache_data:
