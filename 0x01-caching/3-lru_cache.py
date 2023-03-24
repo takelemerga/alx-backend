@@ -13,16 +13,17 @@ class LRUCache(BaseCaching):
 
     def put(self, key, item):
         """assign value to key"""
-        keylist = list(self.cache_data.keys())
-        if (key or item is not None):
-            if(len(self.cache_data) + 1 <= BaseCaching.MAX_ITEMS):
-                self.cache_data[key] = item
-                self.cache_data.move_to_end(key, last=False)
+        if key is None or item is None:
+            return
+        if (key not in self.cache_data):
+            if(len(self.cache_data) + 1 > BaseCaching.MAX_ITEMS):
+                lru_key, _ = self.cache_data.popitem(True)
+                print("DISCARD:", lru_key)
+            self.cache_data[key] = item
+            self.cache_data.move_to_end(key, last=False)
+
             else:
-                lru_key, value = self.cache_data.popitem(True)
-                print("{}:{}".format("DISCARD", lru_key))
-                '''self.cache_data[key] = item'''
-                '''self.cache_data.move_to_end(key, last=False)'''
+                self.cache_data[key] = item
 
     def get(self, key):
         """Retrieves an item by key.
