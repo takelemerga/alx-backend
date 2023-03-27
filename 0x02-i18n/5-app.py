@@ -52,7 +52,7 @@ def get_locale() -> str:
     determines the best match and get local selector
     """
     query = request.args.get('locale', None)
-    if query and query in app.config['LANGUAGES']:
+    if query in app.config['LANGUAGES']:
         return query
     return request.accept_languages.best_match(app.config["LANGUAGES"])
 
